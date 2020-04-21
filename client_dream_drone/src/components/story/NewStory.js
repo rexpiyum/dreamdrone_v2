@@ -5,8 +5,8 @@ import Prompt from "../commons/Prompt"
 import Help from "../commons/help/Help"
 
 
-import {theme} from "../../config/colorTheme";
-import {devices} from "../../config/devices.js"
+import { theme } from "../../config/colorTheme";
+import { devices } from "../../config/devices.js"
 
 
 const Container = styled.div`
@@ -29,6 +29,38 @@ position:relative;
   margin-top:5vw;
   margin-bottom:1vw;
   overflow:visible;
+`;
+
+const HelpBodyContainer = styled.div`
+  padding:2vw;
+  margin:auto;
+  width:40vw;
+`;
+
+const Li =  styled.li`
+color: #FFFFFF;
+`;
+
+const HelpText = styled.p`
+font-family: Roboto Slab;
+font-style: normal;
+font-weight: normal;
+font-size: 1.5vw;
+line-height: 2vw;
+letter-spacing: 0.03em;
+color: #FFFFFF;
+text-align:left;
+`
+
+const HelpExamples = styled.p`
+font-family: Roboto Slab;
+font-style: normal;
+font-weight: bold;
+font-size: 1.5vw;
+line-height: 2vw;
+letter-spacing: 0.03em;
+color: #FFFFFF;
+text-align:left;
 `;
 
 const DroneName = styled.textarea`
@@ -111,9 +143,9 @@ outline:none;
 const NAME_PLACEHOLDER = "Drone name";
 const STORY_PLACEHOLDER = "Tell us a story about your drone...";
 
- var characterInputCount = 0;
+var characterInputCount = 0;
 
- const storyHelpText = "sfsdfsfsdfs"
+const storyHelpText = "sfsdfsfsdfs"
 
 class NewStory extends Component {
   constructor(props) {
@@ -123,40 +155,57 @@ class NewStory extends Component {
       droneNamePlaceholder: NAME_PLACEHOLDER,
       droneStory: "",
       droneStoryPlaceholder: STORY_PLACEHOLDER,
-      autoSave:""
+      autoSave: ""
     };
   }
 
-  componentDidMount(){
-    if(this.props.name) this.setState({ droneName: this.props.name });
-    if(this.props.story) this.setState({ droneStory: this.props.story });
+  componentDidMount() {
+    if (this.props.name) this.setState({ droneName: this.props.name });
+    if (this.props.story) this.setState({ droneStory: this.props.story });
   }
 
   render() {
     return (
-      <Container onMouseLeave={(ev) => {this.changeHandler(); }}>
-        
+      <Container onMouseLeave={(ev) => { this.changeHandler(); }}>
+
         <HelpPromptContainer>
-        <Prompt text={"Give your dream drone a cool name"}></Prompt>
+          <Prompt text={"Give your dream drone a cool name"}></Prompt>
         </HelpPromptContainer>
         <TextArea
-          onBlurCallback={(ev) => {this.changeHandler()}}
+          onBlurCallback={(ev) => { this.changeHandler() }}
           value={this.state.droneName}
-          onChangeCallback={(ev) => this.setState({droneName:ev.target.value})}>
-          </TextArea>
-          <HelpPromptContainer>
-        <Prompt text={"Write a little story about an imaginery scenario involving your dream drone"}></Prompt>
-        <Help body={<div>sfsfsfsfs</div>}></Help>
+          onChangeCallback={(ev) => this.setState({ droneName: ev.target.value })}>
+        </TextArea>
+        <HelpPromptContainer>
+          <Prompt text={"Write a little story about an imaginery scenario involving your dream drone"}></Prompt>
+          <Help body={this.getHelpBody()}></Help>
         </HelpPromptContainer>
-         <TextArea
-            rows = {15}
+        <TextArea
+          rows={15}
           value={this.state.droneStory}
           onChangeCallback={(ev) => this.onDroneStoryChange(ev)}>
         </TextArea>
-       
+
       </Container>
     )
     return null;
+  }
+
+  getHelpBody() {
+    return <HelpBodyContainer>
+      <HelpText>
+        Imagine a future scenario involving your dream drone. Think about how the superpowers you gave are going to be used there.
+      </HelpText>
+      <HelpText>
+        Write that scenario as a little story. Here are some ways to start.
+      </HelpText>
+      <ul>
+        <Li><HelpExamples>Once upon some time in the future...</HelpExamples></Li>
+        <Li><HelpExamples>It is the year 2050...</HelpExamples></Li>
+        <Li><HelpExamples>Alex just recieved a box, inside is the dream drone with all the superpowers they wished for. Alex took it out and pressed the power button... </HelpExamples></Li>
+      </ul>
+    </HelpBodyContainer>
+
   }
 
   onDroneNameChange(ev) {
@@ -166,21 +215,21 @@ class NewStory extends Component {
   onDroneStoryChange(ev) {
     characterInputCount++;
     this.setState({ droneStory: ev.target.value });
-    if(characterInputCount > 10 ) {
+    if (characterInputCount > 10) {
       characterInputCount = 0;
-      this.setState({autoSave:"Auto Saving..."})
+      this.setState({ autoSave: "Auto Saving..." })
       this.changeHandler();
-      setInterval(()=>this.setState({autoSave:"Auto Saved"}),1500)
+      setInterval(() => this.setState({ autoSave: "Auto Saved" }), 1500)
     }
     //hack
-    if(ev.target.value.length == 0){
-      this.setState({autoSave:""})
-      this.props.callback({name:this.state.droneName, story:""});
+    if (ev.target.value.length == 0) {
+      this.setState({ autoSave: "" })
+      this.props.callback({ name: this.state.droneName, story: "" });
     }
   }
 
-  changeHandler(){
-    this.props.callback({name:this.state.droneName, story:this.state.droneStory});
+  changeHandler() {
+    this.props.callback({ name: this.state.droneName, story: this.state.droneStory });
   }
 }
 

@@ -6,6 +6,7 @@ import Button from "../commons/Button"
 import { theme } from "../../config/colorTheme"
 import { animationKeyFrames } from "../../config/keyframes"
 import StoryWidget from "./StoryWidget"
+import ScrollDownMotionIcon from "../commons/ScrollDownMotionIcon"
 
 const Container = styled.div`
   width:100vw;
@@ -103,6 +104,7 @@ export default class LandingPage extends Component {
 
     return (
       <Container>
+        {!this.state.renderHeader && !this.state.animation && <ScrollDownMotionIcon></ScrollDownMotionIcon>}
       {!this.state.renderHeader &&<LandingAnimation onAnimationEndCallback={()=>{this.setState({animation:false});}}></LandingAnimation>}
         {!this.state.animation && <ContentContainer>
           <div ref={(el) => { this.end = el; }}></div>

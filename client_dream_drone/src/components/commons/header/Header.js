@@ -60,6 +60,7 @@ export default function Header(props) {
     <ButtonContainer>
       {(props.onBackCallback || props.disableBack) && <Button onClick={()=> props.onBackCallback()} src={props.disableBack? require("./assets/back_icon_disabled.svg"):require("./assets/back_icon.svg")}></Button>}
       {(props.onNextCallback || props.disableNext) && <Button onClick={()=> props.onNextCallback()} src={props.disableNext? require("./assets/next_icon_disabled.svg"):require("./assets/next_icon.svg")}></Button>}
+      {(props.onDoneCallback || props.disableDone) && <Button onClick={()=> props.onDoneCallback()} src={props.disableDone? require("./assets/done_icon_disabled.svg"):require("./assets/done_icon.svg")}></Button>}
     </ButtonContainer>
   </Container>
 }

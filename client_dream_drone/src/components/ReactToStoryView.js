@@ -174,7 +174,7 @@ class ReactToStoryView extends Component {
       <Wrapper>
         <Header text={"3.What do you think about someone else’s dream drone"} 
         onBackCallback={()=>this.props.history.push('../story/' + this.state.drone._id)}
-        onNextCallback={this.getNextCallbackFunction()}>
+        onDoneCallback={this.getNextCallbackFunction()}>
         </Header>
         <ContentWrapper>
           <DroneStroryWrpper>

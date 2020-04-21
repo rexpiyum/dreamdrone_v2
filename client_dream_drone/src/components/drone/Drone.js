@@ -17,10 +17,10 @@ const Container = styled.div`
 `;
 
 const DroneImage = styled.img`
-  height:35vh;
+  height:32vh;
   max-width:60vw;
   margin:auto;
-  margin-top:5vh;
+  margin-top:8vh;
 
   @media ${devices.mobile} {
     height:80vw;
