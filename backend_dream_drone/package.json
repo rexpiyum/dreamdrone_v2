@@ -1,0 +1,16 @@
+{
+  "name": "backend_dream_drone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Piyum Fernando",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.7.4",
+    "mongoose-simple-random": "^0.4.1"
+  }
+}
