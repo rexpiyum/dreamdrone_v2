@@ -17,7 +17,7 @@ require("./api/models/story");
 //   useNewUrlParser: true
 // });
 
-mongoose.connect('mongodb://dream_drone_prod:canonkissX4@ds263638.mlab.com:63638/dream_drone_prod',{ useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://dream_drone_user:canonkissX4@ds263638.mlab.com:63638/dream_drone_prod',{ useNewUrlParser: true, useUnifiedTopology: true });
 //mongoose.connect('mongodb://cknew:canonkissX4@ds131109.mlab.com:31109/cknew',{ useNewUrlParser: true });
 
 app.use(bodyParser.urlencoded({ extended: true }));
