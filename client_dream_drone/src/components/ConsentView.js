@@ -96,13 +96,12 @@ export default class ConsentView extends Component {
     return (
       <Wrapper>
         <Title>Before we proceed... </Title>
-        <Message>This "dream drone" web platform is developed by the researchers from Social and Digital Systems Group at Arizona State University as a research tool to learn how crowd-generated fictions can shape future drone technologies. This platform will take between 15 - 20 minutes to navigate.</Message>
+        <Message>This "dream drone" web platform is developed by researchers from the Social and Digital Systems Group at Arizona State University as a research tool to learn how crowd-generated fictions can shape future drone technologies. This platform will take between 15 - 20 minutes to navigate.</Message>
         <Message>Your participation is 100% voluntary and you may quit or exit at any time. However, all your answers up to that point will be shared with us anonymously. </Message>
-        <Message>There are no foreseeable risks involved in participating in this study other than those
-encountered in day-to-day life. At the end, you will be asked if you are interested
+        <Message>There are no foreseeable risks involved in participating in this study. At the end, you will be asked if you are interested
 in participating in a follow-up interview. If you choose to provide contact information such as
 your email address, your survey responses may no longer be anonymous to the researchers.
-The contact information will be retained by the research team for up to three years. However, no
+Those information will be retained by the research team for up to three years. However, no
 names or identifying information will be included in any publications or presentations.</Message>
         <Message>If you have any questions concerning the research study, please contact the research team: Piyum Fernando (<a href="mailto:pfernan4@asu.edu">pfernan4@asu.edu</a>) | Alejandra Rodriguez Vega (<a href="mailto:ale.rodriguez@asu.edu">ale.rodriguez@asu.edu</a>) | Stacey Kuznetsov (<a href="mailto:askuznet@asu.edu">askuznet@asu.edu</a>).</Message>
         <Message>If you have any questions about your rights as a participant in this research, or if you feel you have been placed at risk, you can contact the Chair of the Human Subjects Institutional Review Board, through the ASU Office of Research Integrity and Assurance, at (480) 965-6788.</Message>

@@ -13,33 +13,53 @@ const Container = styled.div`
 `;
 
 const ContentContainer = styled.div`
-animation: ${animationKeyFrames.fadeIn} 2s
+animation: ${animationKeyFrames.fadeIn} 2s;
 `;
 
-const Description = styled.div`
+const DescriptionHeader = styled.div`
   width:60vw;
-  margin:8vw;
+  margin-top:8vw;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3vw;
+  line-height: 1.3em;
+  letter-spacing:0.01em;
+  text-align:left;
+  color:${theme.black};
+`;
+
+const DescriptionText = styled.div`
+  width:60vw;
+  margin:1.5vw 0;
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
-  font-size: 2.5vw;
+  font-size: 2.3vw;
   line-height: 4.1vw;
   text-align:left;
-  color:${theme.black}
+  color:${theme.black};
+`;
+
+const Description = styled.div`
+  width:90vw;
+  margin:auto;
+  margin-bottom:10vw;
 `;
 
 const Step = styled.div`
   display:flex;
-  justify-content:space-around;
+  justify-content:space-between;
   align-items:flex-start;
-  margin: 15vw 8vw;
+  margin: 15vw auto;
   width:90vw;
 `;
 
 const StepImage = styled.img`
-  width: 40vw;
+  width: 45vw;
   height: auto;
   margin:auto;
+  display:block;
 `;
 
 const StepTextContainer = styled.div`
@@ -51,31 +71,32 @@ const StepCount = styled.div`
 font-family: Roboto;
 font-style: normal;
 font-weight: normal;
-font-size: 1.8vw;
+font-size: 1.7vw;
 line-height: 2vw;
 letter-spacing: 0.03em;
-padding-bottom:1vw;
-color:${theme.black}
+margin-bottom:0.8vw;
+color:${theme.black};
 `;
 
 const StepTitle = styled.div`
 font-family: Roboto;
 font-style: normal;
 font-weight: 900;
-font-size: 2.2vw;
-line-height: 3.2vw;
+font-size: 2.7vw;
+line-height: 1.3em;
+letter-spacing:0.01em;
 padding-bottom:1vw;
-color:${theme.black}
+color:${theme.black};
 `;
 
 const StepDescription = styled.div`
 font-family: Roboto Slab;
 font-style: normal;
 font-weight: 300;
-font-size: 1.3vw;
+font-size: 1.5vw;
 line-height: 2.3vw;
 letter-spacing: 0.03em;
-color:${theme.black}
+color:${theme.black};
 `;
 
 const ButtonContainer = styled.div`
@@ -89,8 +110,8 @@ export default class LandingPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      animation: true,
-      renderHeader:false
+      animation: false,
+      renderHeader:true,
     };
 
     window.addEventListener('scroll', (event) => {
@@ -110,12 +131,17 @@ export default class LandingPage extends Component {
           <div ref={(el) => { this.end = el; }}></div>
           {this.state.renderHeader && <LandingPageHeader onCreateClick={()=>this.props.history.push('/consent')}></LandingPageHeader>}
           <Description>
-            DreamDrone.org is a place to collectively envision future drone technologies. It provides fun and simple steps to express our desires, aspirations and fears about future drones.
+            <DescriptionHeader>
+            DreamDrone.org is a place to collectively envision future drone technologies.
+          </DescriptionHeader>
+          <DescriptionText>
+            It provides fun and simple steps to express our desires, aspirations and fears about future drones.
+          </DescriptionText>
           </Description>
           <Step>
             <StepTextContainer>
               <StepCount>Step 1</StepCount>
-              <StepTitle>Create your dream drone by giving superpowers</StepTitle>
+              <StepTitle>Create your dream drone by giving it superpowers</StepTitle>
               <StepDescription>
               Create a fictional drone that you would like to see in the future by giving it imaginery features - we call them "superpowers." Assume anything is possible and feasible in the real world. Let your imagination flow!
               </StepDescription>
@@ -138,7 +164,7 @@ export default class LandingPage extends Component {
           <Step>
             <StepTextContainer>
               <StepCount>Step 3</StepCount>
-              <StepTitle>Respond to other’s dream drone stories</StepTitle>
+              <StepTitle>Respond to others' dream drone stories</StepTitle>
               <StepDescription>
               Comment on dream drone stories created by others. Think about positives AND adverse consequences.
               </StepDescription>

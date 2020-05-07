@@ -145,15 +145,8 @@ class AddStoryView extends Component {
 
   componentDidMount() {
 
-    if(window.innerWidth < 800){
-      LEFT_FACTOR = 65;
-      TOP_FACTOR = 32;
-      LEFT_0 = 7.2;
-      TOP_0 = 9.6;
-    }
-
-
     document.title="Dream Drone";
+    window.scrollTo(0,0)
     //fetch the drone data using id
     fetch("/drones/" + this.props.match.params.id)
       .then(response => response.json())
