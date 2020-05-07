@@ -110,8 +110,8 @@ export default class LandingPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      animation: false,
-      renderHeader:true,
+      animation: true,
+      renderHeader:false,
     };
 
     window.addEventListener('scroll', (event) => {
