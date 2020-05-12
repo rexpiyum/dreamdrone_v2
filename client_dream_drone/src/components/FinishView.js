@@ -247,6 +247,7 @@ export default class FinishView extends Component {
 
   componentDidMount(){
     document.title="Dream Drone";
+    window.scrollTo(0,0);
   }
 
 

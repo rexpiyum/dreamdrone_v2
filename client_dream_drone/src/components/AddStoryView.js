@@ -146,7 +146,7 @@ class AddStoryView extends Component {
   componentDidMount() {
 
     document.title="Dream Drone";
-    window.scrollTo(0,0)
+    window.scrollTo(0,0);
     //fetch the drone data using id
     fetch("/drones/" + this.props.match.params.id)
       .then(response => response.json())

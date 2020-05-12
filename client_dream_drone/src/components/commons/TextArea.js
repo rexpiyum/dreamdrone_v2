@@ -25,7 +25,8 @@ export default function TextArea(props){
             onClick={ev=>props.onClickCallback && props.onClickCallback(ev)}
             onBlur={ev=>props.onBlurCallback && props.onBlurCallback(ev)}
             onChange={ev=>props.onChangeCallback && props.onChangeCallback(ev)} value={props.value}
-            rows={props.rows || 1}>
+            rows={props.rows || 1}
+            >
         </Text>
         
 }

@@ -92,7 +92,8 @@ class DroneReactions extends Component {
             drone: null,
             selection: -1,
             subText: "",
-            secondaryText: ""
+            secondaryText: "",
+            reactonCreated:false
         };
     }
 
@@ -113,6 +114,16 @@ class DroneReactions extends Component {
             );
     }
 
+
+    saveReaction(){
+        const reaction = {selection:this.state.selection, why:this.state.subText, cons:this.state.secondaryText}
+        var drone = this.state.drone;
+        if(this.state.reactonCreated){
+            drone.reactions.pop()
+        }
+        drone.reactions.push(reaction)
+    }
+
     render() {
         return (
             <Container>
@@ -129,9 +140,9 @@ class DroneReactions extends Component {
                     {this.state.selection > -1 &&
                         <div>
                             <HelpPromptContainer><Prompt text={SUB_PROMPTS[this.state.selection]}></Prompt></HelpPromptContainer>
-                            <TextArea rows={5}></TextArea>
+                            <TextArea rows={5} onChangeCallback={(ev)=>this.setState({subText:ev.target.value})} value={this.state.subText}></TextArea>
                             <HelpPromptContainer><Prompt text={SECONDARY_PROMPT}></Prompt></HelpPromptContainer>
-                            <TextArea rows={5}></TextArea></div>}
+                            <TextArea rows={5} onChangeCallback={(ev)=>this.setState({secondaryText:ev.target.value})} value={this.state.secondaryText}></TextArea></div>}
                 </ReactionWrapper>
                 <div ></div>
             </Container>
